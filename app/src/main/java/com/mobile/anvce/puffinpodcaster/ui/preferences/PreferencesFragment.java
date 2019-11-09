@@ -70,21 +70,38 @@ public class PreferencesFragment extends Fragment implements PuffinPodcasterCons
             // find which radio button is selected
             if (checkedId == R.id.eightHour) {
                 selectedUpdateFrequency = PodcastUpdateFrequency.EIGHT_HOUR.name();
+
+                if (isUpdateFrequcyChanged(selectedUpdateFrequency)) {
+                    PodcastsSyncUtils.scheduleFirebaseJobDispatcherSync(getContext(), PodcastUpdateFrequency.EIGHT_HOUR);
+                }
                 saveUserSelection(PuffinPodcasterConstants.PREF_FREQUENCY_UPDATE_KEY, selectedUpdateFrequency);
-                PodcastsSyncUtils.scheduleFirebaseJobDispatcherSync(getContext(), PodcastUpdateFrequency.EIGHT_HOUR);
+
                 updateFrequencyLabelSubView.setText("( " + baseSubText + " Every  Eight Hour )");
             } else if (checkedId == R.id.everyDay) {
                 selectedUpdateFrequency = PodcastUpdateFrequency.EVERY_DAY.name();
+                if (isUpdateFrequcyChanged(selectedUpdateFrequency)) {
+                    PodcastsSyncUtils.scheduleFirebaseJobDispatcherSync(getContext(), PodcastUpdateFrequency.EVERY_DAY);
+                }
                 saveUserSelection(PuffinPodcasterConstants.PREF_FREQUENCY_UPDATE_KEY, selectedUpdateFrequency);
-                PodcastsSyncUtils.scheduleFirebaseJobDispatcherSync(getContext(), PodcastUpdateFrequency.EVERY_DAY);
                 updateFrequencyLabelSubView.setText("( " + baseSubText + " Every Day )");
             } else {
                 selectedUpdateFrequency = PodcastUpdateFrequency.WEEKLY.name();
+                if (isUpdateFrequcyChanged(selectedUpdateFrequency)) {
+                    PodcastsSyncUtils.scheduleFirebaseJobDispatcherSync(getContext(), PodcastUpdateFrequency.WEEKLY);
+                }
                 saveUserSelection(PuffinPodcasterConstants.PREF_FREQUENCY_UPDATE_KEY, selectedUpdateFrequency);
-                PodcastsSyncUtils.scheduleFirebaseJobDispatcherSync(getContext(), PodcastUpdateFrequency.WEEKLY);
                 updateFrequencyLabelSubView.setText("( " + baseSubText + " Weekly )");
             }
         });
+    }
+
+    private boolean isUpdateFrequcyChanged(String selectedUpdateFrequency) {
+        if (mPreferences.contains(PREF_FREQUENCY_UPDATE_KEY)) {
+            String storedUpdateFrequency = mPreferences.getString(PREF_FREQUENCY_UPDATE_KEY, PodcastUpdateFrequency.EVERY_DAY.name());
+            return !storedUpdateFrequency.equalsIgnoreCase(selectedUpdateFrequency);
+        }
+
+        return false;
     }
 
     private void initializeSpinnerForRegions(View root) {
