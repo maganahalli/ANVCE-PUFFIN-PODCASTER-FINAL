@@ -9,7 +9,7 @@ android {
         config {
             keyAlias 'key0'
             keyPassword 'podcaster'
-            storeFile file('/Users/alampata/Documents/GitHub/keystore')
+            storeFile file('$rootDir/keystore')
             storePassword 'podcaster'
         }
     }
