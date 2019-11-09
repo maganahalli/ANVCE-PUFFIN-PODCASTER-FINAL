@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="podcastItem"
+            type="com.mobile.anvce.puffinpodcaster.api.model.Podcast" />
+
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:clickable="true"
+        android:elevation="@dimen/card_elevation"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="@dimen/podcastImageSize"
+                android:layout_height="@dimen/podcastImageSize"
+                android:contentDescription="@string/categoryImageDescription"
+                android:scaleType="fitXY"
+                bind:thumbnail="@{podcastItem.thumbnail}"
+                 />
+
+            <TextView
+                android:id="@+id/podcast_title"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@{podcastItem.title}"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="curatedListItem"
+            type="com.mobile.anvce.puffinpodcaster.api.model.CuratedList" />
+
+    </data>
+
+
+        <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corners_rectangle"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/curatedList_title"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@{curatedListItem.title}"
+                android:textColor="@color/black" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refresh_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/curatedPodcastsRecyclierView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:layoutAnimation="@anim/layout_animation"
+                    android:paddingBottom="@dimen/card_margin"
+                    android:paddingLeft="@dimen/card_margin"
+                    android:paddingRight="@dimen/card_margin"
+                    android:scrollbarStyle="outsideOverlay" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        </LinearLayout>
+
+
+
+
+</layout>

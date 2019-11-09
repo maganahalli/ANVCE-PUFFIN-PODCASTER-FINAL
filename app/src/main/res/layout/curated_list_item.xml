@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_margin_small"
+        android:clickable="true"
+        android:elevation="@dimen/card_elevation"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground">
+
+        <LinearLayout
+            android:id="@+id/curatedItemLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/podcast_title"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@{curatedListItem.title}"
+                android:textColor="@color/accent" />
+             </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <data>
+
+        <variable
+            name="curatedListItem"
+            type="com.mobile.anvce.puffinpodcaster.api.model.CuratedList" />
+
+    </data>
+
+</layout>

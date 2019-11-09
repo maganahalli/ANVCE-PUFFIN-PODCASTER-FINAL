@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mobile.anvce.puffinpodcaster.ui.mypodcasts.MyPodcastsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_margin_small"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/sub_header"
+            layout="@layout/fragment_subheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.mobile.anvce.puffinpodcaster.ui.mypodcasts.PodcastTab
+            android:id="@+id/podcasts_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setupWithViewPager="@{ viewPager }"
+            app:tabGravity="fill"
+            app:tabMode="fixed" />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:adapter="@{viewModel.pagerAdapter}">
+        </androidx.viewpager.widget.ViewPager>
+
+
+    </LinearLayout>
+
+</layout>

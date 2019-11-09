@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        android:clickable="true"
+        android:elevation="@dimen/card_elevation"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorAccent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="@dimen/categoryImageSize"
+                android:layout_height="@dimen/categoryImageSize"
+                android:layout_margin="@dimen/activity_margin_very_small"
+                android:contentDescription="@string/categoryImageDescription"
+                android:padding="6dp"
+                app:imageResource="@{searchItem.resourceId}" />
+
+            <TextView
+                android:id="@+id/podcast_title"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:text="@{searchItem.keyword}"
+                android:fontFamily="@font/nunito_sans_bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <data>
+        <variable
+            name="searchItem"
+            type="com.mobile.anvce.puffinpodcaster.model.PodcastSearchItem" />
+
+    </data>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@+id/mobile_navigation"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/navigation_searchable">
+
+    <fragment
+        android:id="@+id/navigation_mypocasts"
+        android:name="com.mobile.anvce.puffinpodcaster.ui.mypodcasts.MyPodcastsFragment"
+        android:label="@string/title_my_podcast"
+        tools:layout="@layout/fragment_mypodcasts" />
+
+    <fragment
+        android:id="@+id/navigation_preferences"
+        android:name="com.mobile.anvce.puffinpodcaster.ui.preferences.PreferencesFragment"
+        android:label="@string/title_preference"
+        tools:layout="@layout/fragment_preferences" />
+    <fragment
+        android:id="@+id/navigation_explore"
+        android:name="com.mobile.anvce.puffinpodcaster.ui.explore.ExploreFragment"
+        android:label="@string/title_explore"
+        tools:layout="@layout/fragment_explore" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.mobile.anvce.puffinpodcaster.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_searchable"
+        android:name="com.mobile.anvce.puffinpodcaster.ui.search.SearchableFragment"
+        tools:layout="@layout/fragment_searchable" />
+
+</navigation>

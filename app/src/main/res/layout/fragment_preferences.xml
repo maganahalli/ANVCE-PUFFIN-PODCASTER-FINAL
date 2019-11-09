@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_preferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/text_margin_eight_dp"
+        android:layout_marginStart="@dimen/text_margin_eight_dp"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_twenty_sp"
+        />
+    <androidx.cardview.widget.CardView
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin_eight_dp"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            style="@style/CardContent"
+            android:background="@drawable/rounded_corners_rectangle"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/searchRegionLabel"
+        style="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/text_margin_eight_dp"
+        android:layout_marginStart="@dimen/text_margin_eight_dp"
+        android:layout_marginTop="@dimen/text_margin_eight_dp"
+        android:fontFamily="@font/nunito_sans_extra_bold"
+        android:text="@string/searchAndDiscoverRegion"
+        android:textAlignment="center"
+        android:textColor="@color/bg_light"
+        android:textSize="@dimen/text_size_twenty_sp" />
+
+    <Spinner
+        android:id="@+id/regionSpinner"
+        android:popupBackground="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_margin="@dimen/activity_horizontal_margin" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin_eight_dp"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            style="@style/CardContent"
+            android:background="@drawable/rounded_corners_rectangle"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/notificationLabel"
+            style="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text_margin_eight_dp"
+            android:layout_marginStart="@dimen/text_margin_eight_dp"
+            android:layout_marginTop="@dimen/text_margin_eight_dp"
+            android:fontFamily="@font/nunito_sans_extra_bold"
+            android:text="@string/notificationLabelText"
+            android:textAlignment="center"
+            android:textColor="@color/bg_light"
+            android:textSize="@dimen/text_size_twenty_sp" />
+
+        <Switch
+            android:id="@+id/notificationSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text_margin_eight_dp"
+            android:layout_marginStart="@dimen/text_margin_eight_dp"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:layout_alignRight="@+id/notificationLabel"
+            android:layout_alignParentRight="true"
+            android:text=""
+            android:layout_alignParentEnd="true"
+            android:layout_alignEnd="@+id/notificationLabel" />
+
+
+    </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin_eight_dp"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:background="@drawable/rounded_corners_rectangle"
+            style="@style/CardContent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/updateFrequencyLabelMain"
+        style="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/text_margin_eight_dp"
+        android:layout_marginStart="@dimen/text_margin_eight_dp"
+        android:layout_marginTop="@dimen/text_margin_eight_dp"
+        android:fontFamily="@font/nunito_sans_extra_bold"
+        android:text="@string/updateFrequencyLabaelMainText"
+        android:textAlignment="center"
+        android:textColor="@color/bg_light"
+        android:textSize="@dimen/text_size_twenty_sp" />
+
+    <TextView
+        android:id="@+id/updateFrequencyLabelSub"
+        style="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/text_margin_four_dp"
+        android:layout_marginStart="@dimen/text_margin_four_dp"
+        android:layout_marginTop="@dimen/text_margin_eight_dp"
+        android:fontFamily="@font/nunito_sans_extra_bold"
+        android:text="@string/updateFrequencyLabaelSubText"
+        android:textAlignment="center"
+        android:textColor="@color/bg_light"
+        android:textSize="@dimen/text_size_fifteen_sp" />
+
+    <RadioGroup
+        android:id="@+id/updateFrequencyRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <RadioButton
+            android:id="@+id/eightHour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eight_hours_text" />
+
+        <RadioButton
+            android:id="@+id/everyDay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/one_day_text" />
+
+        <RadioButton
+            android:id="@+id/weekly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/weekly_text" />
+    </RadioGroup>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
+</ScrollView>

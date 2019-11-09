@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/activity_margin_small"
+    android:layout_height="match_parent">
+
+    <include android:id="@+id/sub_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/fragment_subheader"/>
+
+    <com.mobile.anvce.puffinpodcaster.ui.explore.ExploreTab
+        android:id="@+id/explore_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin_very_small"
+        android:background="@drawable/rounded_corners_rectangle"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </androidx.viewpager.widget.ViewPager>
+
+</LinearLayout>
+</layout>

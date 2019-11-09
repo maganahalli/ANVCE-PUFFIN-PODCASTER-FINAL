@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="podcastItem"
+            type="com.mobile.anvce.puffinpodcaster.api.model.Podcast" />
+
+    </data>
+    <androidx.core.widget.NestedScrollView android:id="@+id/episodesScrollView"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corners_rectangle"
+            android:orientation="vertical">
+            <com.mobile.anvce.puffinpodcaster.ui.DynamicHeightNetworkImageView
+                android:id="@+id/customthumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                bind:customthumbnail="@{podcastItem.thumbnail}" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refresh_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/episodesRecyclierView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:layoutAnimation="@anim/layout_animation"
+                    android:paddingBottom="@dimen/card_margin"
+                    android:paddingLeft="@dimen/card_margin"
+                    android:paddingRight="@dimen/card_margin"
+                    android:scrollbarStyle="outsideOverlay" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

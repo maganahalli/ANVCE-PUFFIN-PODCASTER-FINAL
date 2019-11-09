@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_margin_small"
+        android:clickable="true"
+        android:elevation="@dimen/card_elevation"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground">
+
+        <LinearLayout
+            android:id="@+id/episodeItemLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@{episodeItem.pubDateMsAsString}"
+                android:textColor="@color/accent"
+                android:weightSum="1" />
+
+            <TextView
+                android:id="@+id/podcast_title"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@{episodeItem.title}"
+                android:textColor="@color/accent"
+                android:weightSum="1" />
+
+            <ImageButton
+                android:id="@+id/playImage"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:background="@drawable/play_image"
+                android:contentDescription="@string/playEpisode"
+                android:weightSum="1"
+                tool:contentDescription="@string/playEpisode" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <data>
+
+        <variable
+            name="episodeItem"
+            type="com.mobile.anvce.puffinpodcaster.api.model.Episode" />
+
+    </data>
+
+</layout>

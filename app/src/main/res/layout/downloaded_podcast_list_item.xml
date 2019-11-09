@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="podcastItem"
+            type="com.mobile.anvce.puffinpodcaster.api.model.DownloadedPodcast" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:clickable="true"
+        android:elevation="@dimen/card_elevation"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="@dimen/downloadedPodcastImageSize"
+                android:layout_height="@dimen/downloadedPodcastImageSize"
+                android:contentDescription="@string/categoryImageDescription"
+                android:scaleType="fitXY"
+                android:weightSum="1"
+                bind:thumbnail="@{podcastItem.image}" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin_small"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/podcast_title"
+                    style="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nunito_sans_regular"
+                    android:text="@{podcastItem.title}"
+                    android:textColor="@color/black"
+                    android:weightSum="1" />
+
+                <TextView
+                    android:id="@+id/podcast_publisher"
+                    style="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="@{podcastItem.publisher}"
+                    android:textColor="@color/black"
+                    android:weightSum="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

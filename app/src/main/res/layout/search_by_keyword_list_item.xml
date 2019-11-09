@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        android:clickable="true"
+        android:elevation="@dimen/card_elevation"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground">
+
+        <LinearLayout
+             android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="@dimen/podcastImageSize"
+                android:layout_height="@dimen/podcastImageSize"
+                android:contentDescription="@string/categoryImageDescription"
+                android:scaleType="fitXY"
+                bind:thumbnail="@{searchedPodcastItem.thumbnail}" />
+
+            <TextView
+                android:id="@+id/podcast_title"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@{searchedPodcastItem.titleHighlighted}"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <data>
+
+        <variable
+            name="searchedPodcastItem"
+            type="com.mobile.anvce.puffinpodcaster.api.model.SearchResultByKeyWord" />
+
+    </data>
+
+</layout>

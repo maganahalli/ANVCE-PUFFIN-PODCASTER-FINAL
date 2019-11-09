@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <androidx.core.widget.NestedScrollView android:id="@+id/episodesScrollView"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/detailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.mobile.anvce.puffinpodcaster.ui.DynamicHeightNetworkImageView
+                android:id="@+id/customthumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                bind:customthumbnail="@{searchItem.thumbnail}" />
+
+            <TextView
+                android:id="@+id/podcast_title"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/nunito_sans_extra_bold"
+                android:lineSpacingMultiplier="0.9"
+                android:paddingBottom="@dimen/text_bottom_padding"
+                android:text="@string/podcast_title_label"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/podcast_title_text_size" />
+
+            <FrameLayout
+                android:id="@+id/main_media_frame"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:background="#000000">
+
+                <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+                    android:id="@+id/exoplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" />
+
+            </FrameLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addToFavoriteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/activity_bottom_navigation_margin"
+                android:layout_marginStart="@dimen/activity_bottom_navigation_margin"
+                android:background="@drawable/rounded_corners_button"
+                android:text="@string/addToFavorite" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playLaterSubmitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/activity_bottom_navigation_margin"
+                android:layout_marginStart="@dimen/activity_bottom_navigation_margin"
+                android:background="@color/colorBottomNavigationNotification"
+                android:text="@string/playLater" />
+
+
+            <TextView
+                android:id="@+id/detailsLabel"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:lineSpacingMultiplier="0.9"
+                android:paddingBottom="@dimen/text_bottom_padding"
+                android:text="@string/detail_label"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/podcast_title_text_size" />
+
+
+            <TextView
+                android:id="@+id/description"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:lineSpacingMultiplier="0.9"
+                android:paddingBottom="@dimen/text_bottom_padding"
+                android:text="@{searchItem.descriptionOriginal}"
+                android:textColor="@color/colorPrimaryNight"
+                android:textSize="@dimen/podcast_title_text_size" />
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <data>
+
+        <variable
+            name="searchItem"
+            type="com.mobile.anvce.puffinpodcaster.api.model.SearchResultByKeyWord" />
+
+    </data>
+</layout>
